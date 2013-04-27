@@ -1,5 +1,5 @@
 #pragma once
-#include "state.h"
+#include "State.h"
 class GameoverState :
 	public State
 {
