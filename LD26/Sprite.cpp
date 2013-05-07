@@ -6,8 +6,8 @@ void Sprite::advance(void)
 	x += dx;
 	y += dy;
 
-	dx *= 0.9;
-	dy *= 0.9;
+	dx *= 0.6;
+	dy *= 0.6;
 }
 
 bool Sprite::overlaps(Sprite const &other)

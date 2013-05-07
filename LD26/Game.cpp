@@ -26,6 +26,8 @@ Game::Game()
 void Game::run()
 {
 	while(running) {
+		Uint32 time = SDL_GetTicks();
+
 		SDL_Event ev;
 		while (SDL_PollEvent(&ev)) {
 			if (ev.type == SDL_QUIT) {
@@ -59,7 +61,9 @@ void Game::run()
 		previous = next;
 
 		SDL_Flip(screen);
-		SDL_Delay(1);
+		time = SDL_GetTicks() - time;
+		if (time > 1000/60) time = 0;
+		SDL_Delay(1000/60 - time);
 	}
 	ImageManager::unload_all();	
 }

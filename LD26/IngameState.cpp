@@ -10,7 +10,7 @@ using Util::zround;
 
 STATE_TYPE IngameState::advance(SDL_Surface *screen, Uint8 *keys)
 {
-	double movement_speed = 0.045;
+	double movement_speed = 2.0;
 	if (keys[SDLK_LEFT]) {
 		player->dx -= movement_speed;
 	}
@@ -66,7 +66,7 @@ STATE_TYPE IngameState::advance(SDL_Surface *screen, Uint8 *keys)
 	Util::draw_int(ImageManager::load_image("numbers"), 35, screen, screen->w - Util::get_text_width(35, Util::to_string((int)timeleft)), 4, Util::to_string((int)timeleft));
 
 	ticks++;
-	if (ticks % 100 == 0) {
+	if (ticks % 8 == 0) {
 		timeleft--;
 	}
 
